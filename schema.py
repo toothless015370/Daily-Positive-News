@@ -5,6 +5,8 @@ from typing import List
 class NewsBase(BaseModel):
     headline: str
     body : str
+    countries : str
+    created_at : datetime
     
 class NewsCreate(NewsBase):
     pass
@@ -12,7 +14,19 @@ class NewsCreate(NewsBase):
 class NewsResponse(NewsBase):
     id : int
     categories : List[str]
+    views : int
     created_at : datetime
     updated_at : datetime
     class Config:
+        from_attributes = True
+        
+class UserCreate(BaseModel):
+    email : str
+    password : str
+    
+class UserOut(BaseModel):
+    id : int
+    email : str
+
+    class Config: 
         from_attributes = True
