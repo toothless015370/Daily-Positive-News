@@ -5,7 +5,7 @@ from typing import List
 class NewsBase(BaseModel):
     headline: str
     body : str
-    countries : str
+    countries : List[str]
     created_at : datetime
     
 class NewsCreate(NewsBase):
